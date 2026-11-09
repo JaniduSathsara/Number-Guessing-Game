@@ -3,11 +3,12 @@
 let randomNum = Math.floor(Math.random() * 10 + 1);
 console.log(randomNum);
 
-let attemps = 3;
+let attemps = 0;
 
 const inputNumArray = []
 
 function btnGuessClick() {
+    attemps++;
 
     let userInputNum = document.getElementById("userNumber").value;
     inputNumArray.push(userInputNum)
@@ -58,15 +59,9 @@ function btnGuessClick() {
     }
 
     console.log(inputNumArray);
-
-    attemps--;
-
-    // if (attemps > 0) {
-    //     alert(`You have only ${attemps} atteps`);
-
-    // } else {
-    //     alert(`failed try again bcs you can't find number in 3 attemps`);
-    // }
+    for(let history of inputNumArray){
+        document.getElementById("lblHistory").innerHTML = `<tr>Round ${attemps}:${history}</tr>`
+    }
 
 }
 
