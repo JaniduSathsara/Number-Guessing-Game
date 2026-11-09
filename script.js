@@ -3,8 +3,7 @@
 let randomNum = Math.floor(Math.random() * 10 + 1);
 console.log(randomNum);
 
-
-
+let attemps = 3;
 
 const inputNumArray = []
 
@@ -13,17 +12,59 @@ function btnGuessClick() {
     let userInputNum = document.getElementById("userNumber").value;
     inputNumArray.push(userInputNum)
 
-    if (userInputNum == randomNum) {
-        document.getElementById("results").innerHTML = `<h3>Your number is correct</h3>`;
+    if (userInputNum == "") {
+        Swal.fire({
+            title: "The number?",
+            text: "Please enter Number ",
+            icon: "question",
+            imageUrl: "https://i.pinimg.com/736x/0e/ac/aa/0eacaa656065c691a1819cedb2d07500.jpg",
+            imageWidth: 100,
+            imageHeight: 100,
+            footer: "<p>moda yakek</p>"
+        });
+        // document.getElementById("results").innerHTML = `<h3>Please enter Number </h3>`;
+    } else if (userInputNum == randomNum) {
+        Swal.fire({
+            title: "Good job!",
+            text: "Your number is correct",
+            imageUrl: "https://i.pinimg.com/736x/a6/b4/6c/a6b46c125d2a3e4901b5d2555547716e.jpg",
+            imageWidth: 200,
+            imageHeight: 150,
+            icon: "success"
+        });
+        //document.getElementById("results").innerHTML = `<h3>Your number is correct</h3>`;
     } else if (userInputNum < randomNum) {
-        document.getElementById("results").innerHTML = `<h3>Your number is ${userInputNum}  but correct numer is greater than ur number</h3>`;
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            imageUrl: "https://i.pinimg.com/236x/72/d7/21/72d721a27be7adfd94a58e37f3d58f89.jpg",
+            imageWidth: 100,
+            imageHeight: 100,
+            text: "Your number is" + userInputNum + " but correct numer is greater than ur number",
+            footer: "<p>moda yakek</p>"
+        });
+        // document.getElementById("results").innerHTML = `<h3>Your number is ${userInputNum}  but correct numer is greater than ur number</h3>`;
     } else if (userInputNum > randomNum) {
-        document.getElementById("results").innerHTML = `<h3>Your number is ${userInputNum}  but correct numer is less than ur number</h3>`;
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Your number is" + userInputNum + " but correct numer is less than ur number",
+            footer: "<p>moda yakek</p>"
+        });
+        //document.getElementById("results").innerHTML = `<h3>Your number is ${userInputNum}  but correct numer is less than ur number</h3>`;
     }
 
     console.log(inputNumArray);
 
-    results
+    attemps--;
+
+    // if (attemps > 0) {
+    //     alert(`You have only ${attemps} atteps`);
+
+    // } else {
+    //     alert(`failed try again bcs you can't find number in 3 attemps`);
+    // }
+
 }
 
 ////////////////////////////////////////////////////////////

@@ -12,6 +12,8 @@
         integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
         crossorigin="anonymous"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </head>
 
@@ -35,17 +37,12 @@
             <div>
                 <input type="text" id="userNumber" placeholder="Enter your number...">
                 <input class="btn-outline theme-info btn btn-primary px-4" type="button" value="Guess"
-                    onclick="btnGuessClick()">
+                    onclick="btnGuessClick()" id="lblBtnGues">
                 <input id="btnRefresh" class="btn-outline theme-warning" type="button" value="↺" onclick="tryAgain()">
             </div>
             <hr>
             <div>
                 Good Luck! 🍀
-            </div>
-            <hr>
-            <div id="results">
-
-
             </div>
 
             <hr>
