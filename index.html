@@ -12,31 +12,56 @@
         integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
         crossorigin="anonymous"></script>
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 </head>
 
 <body>
 
-    <div data-aos="zoom-in-right">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="mt-2 mb-0">Think you’re a genius? Prove it! Guess the secret number</h5>
-                <hr>
-                <input type="text" placeholder="Enter Your Number..">
-                <input type="button" value="Guess">
-                <br>
-                <input type="button" value="play again">
-                <input type="button" value="exit">
-                <hr>
-                <small class="fg-3">© 2026 Number Guessing Game</small>
+    <div class="card">
+
+        <div class="card-body">
+            <div class="text-center mb-4">
+                <h1>🎯</h1>
+                <h4">Number Guessing Game</h4>
+                    <p class="text-secondary mb-0">
+                        Think you're a genius? Prove it!
+                    </p>
             </div>
+            <hr>
+            <h5>
+                Guess the Secret Number</h5>
 
+            <p>Enter a number between 1 and 10</p>
+            <div>
+                <input type="text" id="userNumber" placeholder="Enter your number...">
+                <input class="btn-outline theme-info btn btn-primary px-4" type="button" value="Guess" onclick="btnGuessClick()">
+                 <input id="btnRefresh" class="btn-outline theme-warning" type="button" value="↺" onclick="tryAgain()">
+            </div>
+            <hr>
+            <div>
+                Good Luck! 🍀
+            </div>
+            <hr>
+
+            <!-- <div>
+                <table border="1">
+                    <tr>
+                        <td>
+
+                        </td>
+                    </tr>
+                </table>
+            </div> -->
+
+            <hr>
+
+            <div class="text-center">
+                <small class="text-muted">© 2026 Number Guessing Game</small>
+            </div>
         </div>
+    </div>
 
-        <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
