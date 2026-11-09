@@ -48,6 +48,9 @@ function btnGuessClick() {
         Swal.fire({
             icon: "error",
             title: "Oops...",
+            imageUrl: "https://i.pinimg.com/236x/72/d7/21/72d721a27be7adfd94a58e37f3d58f89.jpg",
+            imageWidth: 100,
+            imageHeight: 100,
             text: "Your number is" + userInputNum + " but correct numer is less than ur number",
             footer: "<p>moda yakek</p>"
         });
