@@ -1,12 +1,16 @@
 
-let randomNum = Math.floor(Math.random() * 10 + 1);
-console.log(randomNum);
+function generateRandomNum() {
+    let randomNum = Math.floor(Math.random() * 10 + 1);
+    console.log(randomNum);
+}
+
 
 
 
 const inputNumArray = []
 
 function btnGuessClick() {
+    generateRandomNum();
 
     let userInputNum = document.getElementById("userNumber").value;
     inputNumArray.push(userInputNum)
@@ -20,6 +24,7 @@ function btnGuessClick() {
     }
 
     console.log(inputNumArray);
+
 
 }
 
