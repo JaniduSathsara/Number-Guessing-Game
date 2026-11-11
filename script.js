@@ -7,10 +7,12 @@ let clickCount = 0;
 
 const inputNumArray = []
 
-function btnGuessClick() {
 
+
+function btnGuessClick() {
     let userInputNum = document.getElementById("userNumber").value;
-    inputNumArray.push(userInputNum)
+    let button = document.getElementById("lblBtnGues");
+    let textArea = document.getElementById("userNumber");
 
     if (userInputNum == "") {
         Swal.fire({
@@ -22,8 +24,16 @@ function btnGuessClick() {
             imageHeight: 100,
             footer: "<p>moda yakek</p>"
         });
-        // document.getElementById("results").innerHTML = `<h3>Please enter Number </h3>`;
-    } else if (userInputNum == randomNum) {
+        return;
+    }
+
+    userInputNum = Number(userInputNum);
+
+    clickCount++;
+
+    inputNumArray.push(userInputNum);
+
+    if (userInputNum == randomNum) {
         Swal.fire({
             title: "Good job!",
             text: "Your number is correct",
@@ -32,7 +42,24 @@ function btnGuessClick() {
             imageHeight: 150,
             icon: "success"
         });
+
+        button.disabled = true;
+        textArea.disabled = true;
+
         //document.getElementById("results").innerHTML = `<h3>Your number is correct</h3>`;
+
+    } else if (clickCount == 3) {
+        Swal.fire({
+            title: "Oops! 😅 You've used all 3 attempts! Don't give up just yet. Click OK to start a new game and try your luck again! 🎮",
+            icon: "warning",
+            draggable: true
+        });
+
+        button.disabled = true;
+        textArea.disabled = true;
+
+        console.log(`Total clicks: ${clickCount}`);
+
     } else if (userInputNum < randomNum) {
         Swal.fire({
             icon: "error",
@@ -40,10 +67,12 @@ function btnGuessClick() {
             imageUrl: "https://i.pinimg.com/236x/72/d7/21/72d721a27be7adfd94a58e37f3d58f89.jpg",
             imageWidth: 100,
             imageHeight: 100,
-            text: "Your number is" + userInputNum + " but correct numer is greater than ur number",
+            text: "Your guess is " + userInputNum + ", but the correct number is higher! Try again! 😉”",
             footer: "<p>moda yakek</p>"
         });
-        // document.getElementById("results").innerHTML = `<h3>Your number is ${userInputNum}  but correct numer is greater than ur number</h3>`;
+        
+        // document.getElementById("results").innerHTML = `<h3>Your number is ${userInputNum} but correct numer is greater than ur number</h3>`;
+        
     } else if (userInputNum > randomNum) {
         Swal.fire({
             icon: "error",
@@ -51,25 +80,25 @@ function btnGuessClick() {
             imageUrl: "https://i.pinimg.com/236x/72/d7/21/72d721a27be7adfd94a58e37f3d58f89.jpg",
             imageWidth: 100,
             imageHeight: 100,
-            text: "Your number is" + userInputNum + " but correct numer is less than ur number",
+            text:"“Your guess is " + userInputNum + ", but the correct number is lower! Try again! 😉”",
             footer: "<p>moda yakek</p>"
         });
-        //document.getElementById("results").innerHTML = `<h3>Your number is ${userInputNum}  but correct numer is less than ur number</h3>`;
+
+        //document.getElementById("results").innerHTML = `<h3>Your number is ${userInputNum} but correct numer is less than ur number</h3>`;
     }
 
     console.log(inputNumArray);
 
     let round = 1;
-    document.getElementById("lblHistory").innerHTML = ""
+    document.getElementById("lblHistory").innerHTML = "";
 
     for (let history of inputNumArray) {
         // console.log(history);
-        document.getElementById("lblHistory").innerHTML += `<h3>Round ${round}:${history}</h3>`;
-        round++
+        document.getElementById("lblHistory").innerHTML += `<h3>Round ${round}: ${history}</h3>`;
+        round++;
     }
 
     document.getElementById("userNumber").value = "";
-
 }
 
 ////////////////////////////////////////////////////////////
@@ -83,21 +112,6 @@ if (refreshButton) {
 function tryAgain() {
     location.reload();
 }
-const button = document.getElementById("lblBtnGues");
-const textArea = document.getElementById("userNumber");
 
-button.addEventListener("click", () => {
-    clickCount++;
-    if (clickCount == 3) {
-        Swal.fire({
-            title: "Oops! 😅 You've used all 3 attempts! Don't give up just yet. Click OK to start a new game and try your luck again! 🎮",
-            icon: "warning",
-            draggable: true
-        });
-        button.disabled = true
-        textArea.disabled = true;
-        console.log(`Total clicks: ${clickCount}`);
-    }
-});
 
 ///////////////////////////////////////////////////////////
