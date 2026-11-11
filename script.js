@@ -3,7 +3,7 @@
 let randomNum = Math.floor(Math.random() * 10 + 1);
 console.log(randomNum);
 
-let attemtps = 0;
+let clickCount = 0;
 
 const inputNumArray = []
 
@@ -62,11 +62,13 @@ function btnGuessClick() {
     let round = 1;
     document.getElementById("lblHistory").innerHTML = ""
 
-    for(let history of inputNumArray){
+    for (let history of inputNumArray) {
         // console.log(history);
-        document.getElementById("lblHistory").innerHTML +=`<h3>Round ${round}:${history}</h3>`;
+        document.getElementById("lblHistory").innerHTML += `<h3>Round ${round}:${history}</h3>`;
         round++
     }
+
+    document.getElementById("userNumber").value = "";
 
 }
 
@@ -81,4 +83,21 @@ if (refreshButton) {
 function tryAgain() {
     location.reload();
 }
+const button = document.getElementById("lblBtnGues");
+const textArea = document.getElementById("userNumber");
+
+button.addEventListener("click", () => {
+    clickCount++;
+    if (clickCount == 3) {
+        Swal.fire({
+            title: "Oops! 😅 You've used all 3 attempts! Don't give up just yet. Click OK to start a new game and try your luck again! 🎮",
+            icon: "warning",
+            draggable: true
+        });
+        button.disabled = true
+        textArea.disabled = true;
+        console.log(`Total clicks: ${clickCount}`);
+    }
+});
+
 ///////////////////////////////////////////////////////////
