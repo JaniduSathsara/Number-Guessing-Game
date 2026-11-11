@@ -1,13 +1,9 @@
-
-
 let randomNum = Math.floor(Math.random() * 10 + 1);
 console.log(randomNum);
 
 let clickCount = 0;
 
 const inputNumArray = []
-
-
 
 function btnGuessClick() {
     let userInputNum = document.getElementById("userNumber").value;
