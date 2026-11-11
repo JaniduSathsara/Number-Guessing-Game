@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div class="card">
+    <div class="card container">
         <div class="card-body">
             <div class="text-center mb-4">
                 <h1>🎯</h1>
@@ -35,17 +35,30 @@
             <hr>
             <div>Good Luck! 🍀</div>
             <hr>
-            <div>
-                <table id="lblHistory">
-                </table>
-            </div>
-            <hr>
             <div class="text-center">
                 <small class="text-muted">© 2026 Number Guessing Game</small>
             </div>
         </div>
     </div>
 
+    <hr>
+    <div>
+        <div class="card">
+            <div class="card-header">
+                History
+            </div>
+            <div class="card-body">
+                <figure>
+                    <blockquote class="blockquote">
+                        <p id="lblHistory"></p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">
+                        Your Guess History
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js"></script>
 </body>

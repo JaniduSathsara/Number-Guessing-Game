@@ -3,12 +3,11 @@
 let randomNum = Math.floor(Math.random() * 10 + 1);
 console.log(randomNum);
 
-let attemps = 0;
+let attemtps = 0;
 
 const inputNumArray = []
 
 function btnGuessClick() {
-    attemps++;
 
     let userInputNum = document.getElementById("userNumber").value;
     inputNumArray.push(userInputNum)
@@ -59,8 +58,14 @@ function btnGuessClick() {
     }
 
     console.log(inputNumArray);
+
+    let round = 1;
+    document.getElementById("lblHistory").innerHTML = ""
+
     for(let history of inputNumArray){
-        document.getElementById("lblHistory").innerHTML = `<tr>Round ${attemps}:${history}</tr>`
+        // console.log(history);
+        document.getElementById("lblHistory").innerHTML +=`<h3>Round ${round}:${history}</h3>`;
+        round++
     }
 
 }
